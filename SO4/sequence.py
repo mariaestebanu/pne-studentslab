@@ -11,6 +11,6 @@ list_contents.pop(0)
 print(len(''.join(list_contents)))
 
 #another solution
-index = file_contents.find('\n')
-file_contents = (file_contents[index:].replace('\n', '')
-print(len(file_contents))
+#index = file_contents.find('\n')
+#file_contents = (file_contents[index:].replace('\n', '')
+#print(len(file_contents))

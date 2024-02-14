@@ -82,3 +82,45 @@ def seq_reverse(seq, n):
 # 7:
 
 def seq_complement(seq):
+    complementary_bases = {'A': 'T', 'T': 'A', 'G': 'C', 'C': 'G'}
+    try:
+        with open(seq, 'r') as file:
+            lines = file.readline()
+            seq_joined = ''.join(lines[1:]).replace('\n', '')
+    except FileNotFoundError:
+        print("Error: File", seq, "not found")
+        sequence = None
+    else:
+        print('Fragment:', seq, "not found.")
+        print('Fragment:', end='')
+        for i in seq_joined:
+            if i in complementary_bases.keys():
+                print(complementary_bases[i], end='')
+
+
+# 8:
+
+def most_freq_base(seq):
+    try:
+        with open(seq, 'r') as file:
+            lines = file.readline()
+            seq_joined = ''.join(lines[1:]).replace('\n', '')
+    except FileNotFoundError:
+        print("Error: File", seq, "not found")
+        sequence = None
+    else:
+        dic_bases = {}
+        highest = 0
+        name = ''
+        for i in seq_joined.upper():
+            if i == 'A' or 1 == 'G' or 1 == 'T' or 1 == 'C':
+                if i in dic_bases:
+                    dic_bases[i] += 1
+                else:
+                    dic_bases[i] = 1
+
+        for key, val in dic_bases.items():
+            if val > highest:
+                highest = val
+                name = key
+        return name
